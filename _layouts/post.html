@@ -1,0 +1,86 @@
+{% if page.previous %} 
+	{% assign prev = page.previous.url | append: '|' | append: page.previous.title | append: '|' | append: page.previous.bg_img  | split: "|" %}
+{% else %}
+	{% assign prev = site.posts[0].url | append: '|' | append: site.posts[0].title | append: '|' | append: site.posts[0].bg_img  | split: "|" %}
+{% endif %}
+
+
+{% if page.next %}
+	{% assign next = page.next.url | append: '|' | append: page.next.title  | append: '|' | append: page.next.bg_img  | split: "|" %}
+{% else %}
+	{% assign var = site.posts | size | minus: 1 %}
+
+	{% assign next = site.posts[ var ].url | append: '|' | append: site.posts[ var ].title | append: '|' | append: site.posts[ var ].bg_img  | split: "|" %}
+	
+{% endif %}	
+
+<!DOCTYPE HTML>
+<html>
+	
+	{% include head.html %}
+	
+	<body class="single">
+{{ site.data.categories[page.categor].avatar }}
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+		<div id="fh5co-aside" style="background-image: url({{ page.bg_img | relative_url}})" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<nav role="navigation">
+				<ul>
+					<li><a href="{{ 'index.html' | relative_url }}"><i class="icon-home"></i></a></li>
+				</ul>
+			</nav>
+			<div class="page-title">
+				<img src="{{ site.data.categories[page.category].avatar | relative_url }}" alt="{{ page.category }}">
+				<span>{{ page.date | date: "%B %d, %Y" }}</span>
+				<h2>{{ page.title }}</h2>
+			</div>
+		</div>
+		<div id="fh5co-main-content">
+			<div class="fh5co-post"> 
+				<div class="fh5co-entry padding">
+					<div>
+						{{ content }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<div class="fh5co-navigation">
+			<div class="fh5co-cover prev fh5co-cover-sm" style="background-image: url( {{ prev[2]  | relative_url }} )">
+				<div class="overlay"></div>
+				<a class="copy" href="{{ prev[0] }}">
+					<div class="display-t">
+						<div class="display-tc">
+							<div>
+								<span>Previous Post</span>
+								<h2>{{ prev[1] }}</h2>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="fh5co-cover next fh5co-cover-sm" style="background-image: url( {{ next[2] | relative_url }} )">
+				<div class="overlay"></div>
+				<a class="copy" href="{{ next[0] }}">
+					<div class="display-t">
+						<div class="display-tc">
+							<div>
+								<span>Next Post</span>
+								<h2>{{ next[1] }}</h2>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	
+	{% include footer.html %}
+
+	{% include end_body.html %}
+	
+	</body>
+</html>
+

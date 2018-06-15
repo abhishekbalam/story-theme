@@ -1,0 +1,14 @@
+name: Blog
+title: Personal
+url: http://localhost:4000
+#baseurl: /blog
+
+permalink: none
+
+markdown: kramdown
+
+kramdown:
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
