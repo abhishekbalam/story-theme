@@ -3,7 +3,7 @@ Story is a one page template with modern look and feel in mind based on the [ori
 
 # Example Site
 
-https://blog.abhishekbalam.xyz
+https://abhishekbalam.github.io/story-theme/
 
 ## Installation
 
