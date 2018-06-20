@@ -8,7 +8,7 @@ layout: default
 		<img src="{{ 'assets/images/project-1.jpg' | relative_url }}" alt="FrHTML5 Bootstrap Template by FreeHTML5.co">
 		<div>
 			<span class="fh5co-post-date">{{ post.date | date: "%B %d, %Y" }}</span>
-			<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+			<h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
 			<p>{{ post.subtitle }}</p>
 		</div>
 	</div>
